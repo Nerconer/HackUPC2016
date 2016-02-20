@@ -27,7 +27,7 @@ ini_set('display_errors',0);
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="selectbasic"></label>
 				  <div class="col-md-4">
-					<select ng-model="myVar" id="selectbasic" name="selectbasic" class="form-control">					 
+					<select ng-model="cities" id="selectbasic" name="selectbasic" class="form-control">					 
 						<option value="Brussels-sky">Brussels</option>
 						<option value="Sofia-sky">Sofia</option>
 						<option value="Prague-sky">Prague</option>
@@ -67,13 +67,13 @@ ini_set('display_errors',0);
 				  <div class="col-md-4">
 				  <div class="radio">
 					<label for="radios-0">
-					  <input type="radio" ng-model="currency.val" name="radios" id="radios-0" value="euro" checked="checked">
+					  <input type="radio" ng-model="currency_val" name="radios" id="radios-0" value="euro" checked="checked">
 					  Euro
 					</label>
 					</div>
 				  <div class="radio">
 					<label for="radios-1">
-					  <input type="radio" ng-model="currency.val" name="radios" id="radios-1" value="dollar">
+					  <input type="radio" ng-model="currency_val" name="radios" id="radios-1" value="dollar">
 					  Dollar
 					</label>
 					</div>
