@@ -17,6 +17,7 @@ foreach ($json_a as $hackathon) {
 		$indivHack->info = $hack["eventwrapper_link/_text"];
 		$indivHack->link = $hack["eventwrapper_link"];
 		$indivHack->logo = $hack["eventwrapper_images"][1];
+		$indivHack->place = $hack["inner_value_3"];
 
 		//echo "<pre>" . print_r($hack,true) . "</pre>";
 		//echo "<pre>" . print_r($indivHack,true) . "</pre>";
