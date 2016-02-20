@@ -1,24 +1,24 @@
 <?php 
 
 	$country = $_GET['country'];
-	echo $country;
-	echo "<br/>";
+	//echo $country;
+	//echo "<br/>";
 
 	$currency = $_GET['currency'];
-	echo $currency;
-	echo "<br/>";
+	//echo $currency;
+	//echo "<br/>";
 
 	$locale = $_GET['locale'];
-	echo $locale,"<br/>";
+	//echo $locale,"<br/>";
 
 	$originplace = $_GET['originplace'];
-	echo $originplace,"<br/>";
+	//echo $originplace,"<br/>";
 
 	$destinationplace = $_GET['destinationplace'];
-	echo $destinationplace,"<br/>";
+	//echo $destinationplace,"<br/>";
 
 	$outbounddate = $_GET['outbounddate'];
-	echo $outbounddate,"<br/>";
+	//echo $outbounddate,"<br/>";
 
 
 	$url ="http://partners.api.skyscanner.net/apiservices/pricing/v1.0";
@@ -78,8 +78,9 @@
 
 	}
 
-	echo "<pre>" . print_r($price_list,true) . "</pre>";
-
+	//echo "<pre>" . print_r($price_list,true) . "</pre>";
+	$keys = array_keys($price_list);
+	$values = array_values($price_list);
 ?>
 
 <!DOCTYPE html>
@@ -101,11 +102,15 @@
 <body>
 	<div id="content">
 
-		<?php 
-			//foreach ($ as $ ) {
-				
-			//} ?>
+		
+			<ul>
 
+			<?php 
+				for($i = 1; $i < count($keys); ++$i) 
+				echo "<li>",$keys[$i],": ",$values[$i],'</li>';
+
+			?>
+			</ul>
 		
 	</div>
 </body>
