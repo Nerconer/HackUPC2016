@@ -78,6 +78,35 @@
 
 	}
 
-	//$price_list = array_shift($price_list);
-
 	echo "<pre>" . print_r($price_list,true) . "</pre>";
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+	<div id="content">
+
+		<?php 
+			//foreach ($ as $ ) {
+				
+			//} ?>
+
+		
+	</div>
+</body>
+</html>
