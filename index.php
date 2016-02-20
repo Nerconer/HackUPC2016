@@ -1,34 +1,25 @@
 <?php 
 ini_set('display_errors',0);
  ?>
-<html ng-app>
+<html>
 	<head>
 		<meta charset ="utf-8">
 		<title>HackaTravel</title>
 		<link type="text/css" href="style.css" rel="stylesheet">
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-			integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		
-	<script>
-		var app = angular.module('appT', []);
-		app.controller('controlador', function($scope){
-			 
-			//$scope.valor={};
-		});
-	</script>
 	</head>
 	<body ng-controller= "controlador">
 		<h1 id = "pagTitulo">HackaTravel</h1>
 		
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="events.php" method="GET">
 			<fieldset class = "col-md-8">
 				<legend class="col-md-4 control-label">Select your country of origin </legend>
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="selectbasic"></label>
 				  <div class="col-md-4">
-					<select ng-model="cities" id="selectbasic" name="selectbasic" class="form-control">					 
-						<option value="Brussels-sky">Brussels</option>
+					<select id="selectbasic" name="cities" class="form-control">					 
+						<option value="BRUS-sky">Brussels</option>
 						<option value="Sofia-sky">Sofia</option>
 						<option value="Prague-sky">Prague</option>
 						<option value="Copenhagen-sky">Copenhagen</option>
@@ -62,20 +53,16 @@ ini_set('display_errors',0);
 				
 				<legend class="col-md-4 control-label">Select the type of currency </legend>
 
-				<div class="form-group">
+				<div class="form-group" name="currency_val">
 				  <label class="col-md-4 control-label" for="radios"></label>
 				  <div class="col-md-4">
 				  <div class="radio">
 					<label for="radios-0">
-					  <input type="radio" ng-model="currency_val" name="radios" id="radios-0" value="euro" checked="checked">
-					  Euro
-					</label>
+					  <input type="radio"name="radios" value="EUR" checked="checked">Euro</label>
 					</div>
 				  <div class="radio">
 					<label for="radios-1">
-					  <input type="radio" ng-model="currency_val" name="radios" id="radios-1" value="dollar">
-					  Dollar
-					</label>
+					  <input type="radio" name="radios" value="GBP">Pounds</label>
 					</div>
 				  </div>
 				</div>
@@ -83,7 +70,7 @@ ini_set('display_errors',0);
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="singlebutton"></label>
 				  <div class="col-md-4">
-					<button ng-click = "submit()"; id="singlebutton" name="singlebutton" class="btn btn-success">search</button>
+					<button name="singlebutton" class="btn-primary">search</button>
 				  </div>
 				</div>
 			</fieldset>

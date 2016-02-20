@@ -1,24 +1,27 @@
 <?php 
 
 	$country = $_GET['country'];
-	print_r($country);
+	echo $country;
+	echo "<br/>";
+
 	$currency = $_GET['currency'];
+	echo $currency;
+	echo "<br/>";
+
 	$locale = $_GET['locale'];
+	echo $locale,"<br/>";
+
 	$originplace = $_GET['originplace'];
+	echo $originplace,"<br/>";
+
 	$destinationplace = $_GET['destinationplace'];
+	echo $destinationplace,"<br/>";
+
 	$outbounddate = $_GET['outbounddate'];
+	echo $outbounddate,"<br/>";
 
 
 	$url ="http://partners.api.skyscanner.net/apiservices/pricing/v1.0";
-
-	$data = array(	'apiKey' 			=> 'ah229592831881725379481999349293', 
-					'country' 			=> 	'ES',
-					'currency' 			=> 	'EUR',
-					'locale' 			=> 	'es-ES',
-					'originplace' 		=> 	'BCN-sky',
-					'destinationplace' 	=> 	'PARI-sky',
-					'outbounddate' 		=>	'2016-02-21',
-					);
 
 	$data = array(	'apiKey' 			=> 'ah229592831881725379481999349293', 
 					'country' 			=> 	$country,
@@ -74,5 +77,7 @@
 		}
 
 	}
+
+	//$price_list = array_shift($price_list);
 
 	echo "<pre>" . print_r($price_list,true) . "</pre>";

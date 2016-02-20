@@ -1,6 +1,9 @@
 <?php  
 
 	include 'import.php';
+	$cities = $_GET['cities'];
+	$currency_val = $_GET['radios'];
+
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +42,17 @@
 				}
 
 
+				$code_cities = file_get_contents("http://partners.api.skyscanner.net/apiservices/autosuggest/v1.0/ES/EUR/en-EN/?query=".$cities."&apiKey=ah229592831881725379481999349293");
+				$code_cities = json_decode($code_cities);
+				//echo $cities,"<br/>";
+				//echo "CITIEEEES: ",$code_cities,"<br/>";
+					$code_cities = $code_cities->Places[0]->PlaceId;
+				//echo $code_cities->Places,"<br/>";
+				//echo "<pre>" . print_r($code_cities,true) . "</pre>";
 
 
-				//echo "<pre>" . print_r($result,true) . "</pre>";
-				$link = 'infoHack.php?country=ES&currency=EUR&locale=es-ES&originplace=BCN-sky&destinationplace='.$code.'&outbounddate=2016-02-21';
+
+				$link = 'infoHack.php?country=ES&currency='.$currency_val.'&locale=en-EN&originplace='.$code_cities.'&destinationplace='.$code.'&outbounddate=2016-02-21';
 
 		?>
 			<div class="hackathon">
