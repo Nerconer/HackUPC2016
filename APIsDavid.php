@@ -1,25 +1,5 @@
 
 <?php
-	$apiKey = "ah229592831881725379481999349293";
-	$country = "ES";
-	$currency = "EUR";
-	$locale = "es-ES";
-	$originplace = "BCN-sky";
-	$destinationplace = "PARI-sky";
-	$outbounddate = "2016-02-21";
-
-
-
-
-
-
-
-
-
-
-
-
-	$price_list = array();
 
 	$url ="http://partners.api.skyscanner.net/apiservices/pricing/v1.0";
 
@@ -48,25 +28,37 @@
 	$json = file_get_contents($location);
 	$obj = json_decode($json);
 
-	//print_r($obj->Itineraries[0]);	
+
+	// VARIABLES
+	$price_list = array();
+	//var_dump($obj);
+	$currency = $obj->Query->Currency;
+
 	$Iti = $obj->Itineraries;
 	
 	foreach ($Iti as $priOpt) {
 		foreach ($priOpt as $o) {
-				//print_r($o);
 			foreach ($o as $a) {
-						//print_r($a);
 						$id = $a->Agents[0];
 						$price = $a->Price;
-						//print_r($id);
-						//print_r($price);
-						$price_list[$id] = $price;
+						$price_list[$id] = $price . ' ' .$currency;
 					}		
 			}
 	}
-	$price_list = array_filter($price_list);
-	//var_dump($price_list);
+	$price_list = array_filter($price_list); // delete null values (trash)
 
+	foreach ($obj->Agents as $agent ) {
+		//var_dump($agent->Id);
+		$idAgent = $agent->Id;
+		$nameAgent = $agent->Name;
+		if (array_key_exists($idAgent, $price_list)) {
+			$price_list[$nameAgent] = $price_list[$idAgent];
+			unset($price_list[$idAgent]);
+		}
+
+	}
+
+	echo "<pre>" . print_r($price_list,true) . "</pre>";
 
 
 ?>
